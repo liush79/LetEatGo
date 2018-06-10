@@ -9,11 +9,15 @@ RUN yum -y install vim
 # install golang
 RUN wget -nv https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz
 RUN tar -C /usr/local -xf go1.10.2.linux-amd64.tar.gz
-ENV GOPATH /root/go
+RUN mkdir -p /develop/backend
+ENV GOPATH /develop/backend
 ENV PATH $PATH:/usr/local/go/bin
+ENV PATH $PATH:/develop/backend/bin
 
 # install go framework
 RUN go get github.com/gin-gonic/gin
 RUN go get github.com/jinzhu/gorm
 RUN go get github.com/jinzhu/gorm/dialects/postgres
 RUN go get github.com/dgrijalva/jwt-go
+RUN go get github.com/derekparker/delve/cmd/dlv
+
