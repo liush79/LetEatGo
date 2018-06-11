@@ -9,11 +9,11 @@ services:
     ports:
       - 7000:7000
     volumes:
-      - ../src/backend:/develop/backend
-    working_dir: /develop/backend
+      - ../src/backend:/develop/backend/src/main
+    working_dir: /develop/backend/src/main
     security_opt:
       - seccomp:unconfined
-    entrypoint: dlv debug test -l 0.0.0.0:7000 --headless=true --log=true -- server
+#    entrypoint: dlv debug -l 0.0.0.0:7000 --headless=true --log=true -- server
     networks:
       my-net:
         aliases: # 별명. 참고로하자.

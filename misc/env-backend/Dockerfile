@@ -5,11 +5,11 @@ RUN yum -y update
 RUN yum -y install wget
 RUN yum -y install git
 RUN yum -y install vim
+RUN yum -y install gcc
 
 # install golang
 RUN wget -nv https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz
 RUN tar -C /usr/local -xf go1.10.2.linux-amd64.tar.gz
-RUN mkdir -p /develop/backend
 ENV GOPATH /develop/backend
 ENV PATH $PATH:/usr/local/go/bin
 ENV PATH $PATH:/develop/backend/bin
